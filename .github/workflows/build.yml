@@ -49,7 +49,7 @@ jobs:
           check_name: test-failure-report (ut, it)
           report_paths: '**/target/*-reports/TEST-*.xml'
           fail_on_test_failures: 'true'
-          skip_publishing: 'false'
+          skip_publishing: 'true'
  
       #Publica archivos de reports
       - if: always()
