@@ -20,8 +20,6 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
           cache: 'maven'
-      - env: 
-          skipSurefire: ${{ env.GITHUB_ACTOR == 'javiertuya' }}
 
       - run: echo $GITHUB_WORKFLOW
       - run: echo $GITHUB_RUN_ID
@@ -39,6 +37,9 @@ jobs:
       - run: echo "Github actor no tuya1 ${{ env.GITHUB_ACTOR == 'javiertuya' }}"
       - run: echo "Github actor no tuya2 ${{ format('{0}', env.GITHUB_ACTOR == 'javiertuya') }}"
       - run: echo "Github actor no tuya2 ${{ env.skipSurefire }}"
+      - name: skip-surefire
+        run: echo "::set-output name=skip::${{ env.GITHUB_ACTOR == 'javiertuya' }}"
+      - run: echo ${{ steps.skip-surefire.outputs.skip }}
 
       #Para que falle el build per se ejecuten todas las fases de maven produciendo los reports
       #se configura maven para ignorar fallos y se anyade la action scacap/action-surefire-report@v1
