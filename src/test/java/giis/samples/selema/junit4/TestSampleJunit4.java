@@ -11,7 +11,7 @@ public class TestSampleJunit4 {
 
 	@Test
 	public void testFailMethod() {
-		assertEquals("xxx", "yyy");
+		assertEquals("xxx", "xxx");
 	}
 	@Test
 	public void testPassMethod() {
