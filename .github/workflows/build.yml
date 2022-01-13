@@ -1,5 +1,9 @@
-name: Build samples-test-spring
-on: [push, pull_request]
+name: Build
+on:
+  push:
+    branches-ignore:
+      - dependabot/**
+  pull_request:
 jobs:
   test:
     runs-on: ubuntu-latest
