@@ -34,7 +34,7 @@ jobs:
       - run: echo $GITHUB_EVENT_NAME
       - run: echo $GITHUB_REF_PROTECTED	
       - run: echo $GITHUB_REF_TYPE
-      - run: echo "Github actor tuya0 ${{ jobs.test.steps.env.GITHUB_ACTOR }}"
+      - run: echo "Github actor tuya0 ${{ steps.env.GITHUB_ACTOR }}"
       - run: echo "Github actor tuya1 ${{ env.GITHUB_ACTOR == 'javiertuya' }}"
       - run: echo "Github actor tuya2 ${{ format('{0}', env.GITHUB_ACTOR == 'javiertuya') }}"
       - name: skip-surefire
