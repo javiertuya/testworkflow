@@ -6,12 +6,12 @@ on:
   pull_request:
     branches:
       - 'main'
-env: 
-  skipSurefire: ${{ env.GITHUB_ACTOR == 'javiertuya' }}
 jobs:
   test:
     runs-on: ubuntu-latest
     #if: ${{ false }}  # disable for now
+    env: 
+      skipSurefire: ${{ env.GITHUB_ACTOR == 'javiertuya' }}
     steps:
       - name: Checkout GitHub repo
         uses: actions/checkout@v2
