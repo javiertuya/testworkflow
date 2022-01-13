@@ -34,7 +34,7 @@ jobs:
       - run: echo $GITHUB_EVENT_NAME
       - run: echo $GITHUB_REF_PROTECTED	
       - run: echo $GITHUB_REF_TYPE
-      - run: echo "Github actor no tuya ${{ env.GITHUB_ACTOR != 'javiertuya' }}"
+      - run: echo "Github actor no tuya ${{ Boolean(env.GITHUB_ACTOR != 'javiertuya') }}"
 
       #Para que falle el build per se ejecuten todas las fases de maven produciendo los reports
       #se configura maven para ignorar fallos y se anyade la action scacap/action-surefire-report@v1
