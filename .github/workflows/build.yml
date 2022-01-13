@@ -49,13 +49,13 @@ jobs:
       - name: Build and test
         run: mvn verify -Dmaven.test.failure.ignore=true -U --no-transfer-progress
       - name: Generate surefire report
-        if: ${{ always() && (env.GITHUB_ACTOR == 'javiertuya') }}
+        if: ${{ always()
         uses: scacap/action-surefire-report@v1
         with:
           check_name: test-failure-report (ut, it)
           report_paths: '**/target/*-reports/TEST-*.xml'
           fail_on_test_failures: 'true'
-          skip_publishing: ${{ env.GITHUB_ACTOR != 'javiertuya' }}
+          skip_publishing: ${{ github.actor != 'javiertuya' }}
  
       #Publica archivos de reports
       - if: always()
