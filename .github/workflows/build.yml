@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     #if: ${{ false }}  # disable for now
     env: 
-      skipSurefire: ${{ env.GITHUB_ACTOR == 'javiertuya' }}
+      skipSurefire: ${{ $GITHUB_ACTOR == 'javiertuya' }}
     steps:
       - name: Checkout GitHub repo
         uses: actions/checkout@v2
