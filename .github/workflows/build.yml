@@ -35,8 +35,8 @@ jobs:
       - run: echo $GITHUB_REF_PROTECTED	
       - run: echo $GITHUB_REF_TYPE
       - run: echo "Github actor tuya0 ${{ github.actor }}"
-      - run: echo "Github actor tuya1 ${{ env.GITHUB_ACTOR == 'javiertuya' }}"
-      - run: echo "Github actor tuya2 ${{ format('{0}', env.GITHUB_ACTOR == 'javiertuya') }}"
+      - run: echo "Github actor tuya1 ${{ github.actor == 'javiertuya' }}"
+      - run: echo "Github actor tuya2 ${{ format('{0}', github.actor == 'javiertuya') }}"
       - name: skip-surefire
         run: echo "::set-output name=skip::$GITHUB_ACTOR"
       - run: echo ${{ steps.skip-surefire.outputs.skip }}
