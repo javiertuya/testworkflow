@@ -36,7 +36,6 @@ jobs:
       - run: echo $GITHUB_REF_TYPE
       - run: echo "Github actor tuya1 ${{ env.GITHUB_ACTOR == 'javiertuya' }}"
       - run: echo "Github actor tuya2 ${{ format('{0}', env.GITHUB_ACTOR == 'javiertuya') }}"
-      - run: echo "Github actor tuya2 ${{ env.skipSurefire }}"
       - name: skip-surefire
         run: echo "::set-output name=skip::${{ env.GITHUB_ACTOR == 'javiertuya' }}"
       - run: echo ${{ steps.skip-surefire.outputs.skip }}
@@ -49,7 +48,7 @@ jobs:
       - name: Build and test
         run: mvn verify -Dmaven.test.failure.ignore=true -U --no-transfer-progress
       - name: Generate surefire report
-        if: ${{ always() && (env.GITHUB_ACTOR != 'javiertuya') }}
+        if: ${{ always() && (env.GITHUB_ACTOR == 'javiertuya') }}
         uses: scacap/action-surefire-report@v1
         with:
           check_name: test-failure-report (ut, it)
