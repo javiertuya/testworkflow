@@ -50,7 +50,7 @@ jobs:
           check_name: test-failure-report (ut, it)
           report_paths: '**/target/*-reports/TEST-*.xml'
           fail_on_test_failures: 'true'
-          skip_publishing: 'true'
+          skip_publishing: ${{ env.GITHUB_ACTOR != 'tuya' }}
  
       #Publica archivos de reports
       - if: always()
