@@ -10,8 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     #if: ${{ false }}  # disable for now
-    env: 
-      skipSurefire: ${{ $GITHUB_ACTOR == 'javiertuya' }}
     steps:
       - name: Checkout GitHub repo
         uses: actions/checkout@v2
@@ -22,6 +20,8 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
           cache: 'maven'
+      - env: 
+          skipSurefire: ${{ env.GITHUB_ACTOR == 'javiertuya' }}
 
       - run: echo $GITHUB_WORKFLOW
       - run: echo $GITHUB_RUN_ID
