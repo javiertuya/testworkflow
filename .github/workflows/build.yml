@@ -38,7 +38,7 @@ jobs:
       - run: echo "Github actor tuya1 ${{ env.GITHUB_ACTOR == 'javiertuya' }}"
       - run: echo "Github actor tuya2 ${{ format('{0}', env.GITHUB_ACTOR == 'javiertuya') }}"
       - name: skip-surefire
-        run: echo "::set-output name=skip::${{ env.GITHUB_ACTOR == 'javiertuya' }}"
+        run: echo "::set-output name=skip::$GITHUB_ACTOR"
       - run: echo ${{ steps.skip-surefire.outputs.skip }}
 
       #Para que falle el build per se ejecuten todas las fases de maven produciendo los reports
