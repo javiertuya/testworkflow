@@ -3,6 +3,8 @@ on:
   push:
     branches-ignore:
       - 'dependabot/**' #avoids duplicate runs
+    tags-ignore:
+      - 'v*' #avoids duplicate runs on release
   pull_request:
     branches:
       - 'main'
