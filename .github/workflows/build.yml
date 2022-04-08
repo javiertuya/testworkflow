@@ -57,13 +57,13 @@ jobs:
       #Publica archivos de reports
       - if: always()
         name: Publish test report artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: test-reports
           path: target/site/
       - if: always()
         name: Publish test reports for sonarqube job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: test-reports-for-sonar
           path: |
